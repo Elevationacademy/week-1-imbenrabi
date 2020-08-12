@@ -66,16 +66,20 @@ const hasSpecialChar = (word) => {
 }
 
 const stripChar = (word, char) => {
-    return word
+    if (word.indexOf(char) !== word.length - 1) {
+        return word
         .split(char)
         .join('')
-}
+    }
+
+    return word.slice(0, word.length - 1)
+} 
 
 const countAll = (wordsArr) => {
     for (let word of wordsArr) {
         if (hasSpecialChar(word)[0]) {
             const char = word.slice(hasSpecialChar(word)[1]);
-            const cleanWord = stripChar(word);
+            const cleanWord = stripChar(word, char);
             if (!wordCounts[char]) {
                 wordCounts[char] = 0;
             }
