@@ -24,7 +24,11 @@ const validate = (e) => {
         errors.push('Phone number must contain 10 digits.')
     }
 
-    if (errors !== []) {
+    if (!errors[0]) {
+        $form.style.setProperty('display', 'none');
+        $welcomeMsg.innerHTML = `Welcome ${name}!`;
+
+    } else {
         for (let error of errors) {
             const errorMsg = document.createElement('p');
 
@@ -42,6 +46,7 @@ const $bdInput = document.getElementById('bd-input');
 const $phoneInput = document.getElementById('phone-input'); 
 const $submitButton = document.getElementById('submit');
 const $errorBox = document.getElementById('error-box');
-
+const $welcomeMsg = document.getElementById('welcome-msg'); 
+const $form = document.getElementById('signup');
 
 $submitButton.onclick = validate;

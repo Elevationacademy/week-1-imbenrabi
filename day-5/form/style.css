@@ -27,3 +27,7 @@ p {
     padding: 8px;
     margin-top: 5px;
 }
+
+#welcome-msg {
+    font-size: 28px;
+}
